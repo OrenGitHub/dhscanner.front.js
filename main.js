@@ -7,7 +7,7 @@ const port = 3000
 
 const upload = multer();
 
-app.post('/translator/javascript', upload.single('source'), (req, res) => {
+app.post('/to/esprima/js/ast', upload.single('source'), (req, res) => {
   sourceCode = `${req.file.buffer}`
   let ast;
   try {
@@ -22,7 +22,7 @@ app.post('/translator/javascript', upload.single('source'), (req, res) => {
     }
   }
 
-  res.send(`>>> ${JSON.stringify(ast)}\n`)
+  res.send(`${JSON.stringify(ast)}`)
 })
 
 app.listen(port, () => {
