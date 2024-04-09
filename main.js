@@ -7,6 +7,10 @@ const port = 3000
 
 const upload = multer();
 
+app.get('/healthcheck', (req, res) => {
+  res.json({ 'healthy': true })
+})
+
 app.post('/to/esprima/js/ast', upload.single('source'), (req, res) => {
   sourceCode = `${req.file.buffer}`
   let ast;
